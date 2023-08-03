@@ -9,6 +9,8 @@ public class SpawnControle : MonoBehaviour
 
     private Vector2 screenWidth;
 
+    private GameController gameController;
+
 
     //O que acontece no metodo Awake acontecem antes do Start
     private void Awake()
@@ -30,6 +32,7 @@ public class SpawnControle : MonoBehaviour
         screenWidth = Camera.main.ScreenToWorldPoint(new Vector2(Screen.safeArea.width, Screen.safeArea.height));
         Vector2 heightPosition = new Vector2(transform.position.x, Camera.main.orthographicSize + topDistance);
         transform.position = heightPosition;
+        gameController = FindObjectOfType<GameController>();
     }
 
 
@@ -41,12 +44,18 @@ public class SpawnControle : MonoBehaviour
     //metodos com retorno IEnumerator acontecem depois de um tempo como um span.
     private IEnumerator Spawn()
     {
-        // o que estiver antes do yield return vai acontecer instantaneo
-        yield return new WaitForSeconds(2.0f);
-        //oq estiver aqui em baixo vai acontecer depois do tempo
-        transform.position = new Vector2(Random.Range(-screenWidth.x + lateralMargin, screenWidth.x - lateralMargin), transform.position.y);
-        // criando a instancia da bola de boliche (objeto, posicao, rotacao)
-        GameObject tempBallPrefab = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
-        
+        if (gameController.gameStarted)
+        {
+            // o que estiver antes do yield return vai acontecer instantaneo
+            yield return new WaitForSeconds(0f);
+            //oq estiver aqui em baixo vai acontecer depois do tempo
+            transform.position = new Vector2(Random.Range(-screenWidth.x + lateralMargin, screenWidth.x - lateralMargin), transform.position.y);
+            // criando a instancia da bola de boliche (objeto, posicao, rotacao)
+            GameObject tempBallPrefab = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
+        }
+        else
+        {
+            yield return null;
+        }
     }
 }

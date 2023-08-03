@@ -7,6 +7,13 @@ public class HatMovement : MonoBehaviour
     // Serialize field faz com que a variavel mesmo privada apareça no Inspecter do Unity.
     [SerializeField] private float speed;
 
+    private GameController gameController;
+
+    private void Start()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,8 +22,8 @@ public class HatMovement : MonoBehaviour
 
     private void DragTouch()
     {
-        //Verificando se o toque na tela é maior que zero E toque na tela é do tipo movimento
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        //Verificando se o toque na tela é maior que zero E toque na tela é do tipo movimento & se o jogo esta iniciado e dentro do timer.
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && gameController.gameStarted)
         {
             //passando a posição do dedo na tela
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
