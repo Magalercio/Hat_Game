@@ -512,6 +512,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1465650626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465650627}
+  - component: {fileID: 1465650628}
+  m_Layer: 0
+  m_Name: point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1465650627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465650626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1897154564}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1465650628
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465650626}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.21
 --- !u!1 &1730855274
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +719,7 @@ GameObject:
   - component: {fileID: 1897154564}
   - component: {fileID: 1897154565}
   - component: {fileID: 1897154566}
+  - component: {fileID: 1897154567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -674,6 +742,7 @@ Transform:
   m_Children:
   - {fileID: 687397921}
   - {fileID: 426274807}
+  - {fileID: 1465650627}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897154565
@@ -701,8 +770,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4dbf9c7cb92304d967d0030b399337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 0
-  maxDistance: 0
+  minDistance: 0.7
+  maxDistance: 1.5
+--- !u!68 &1897154567
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897154563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.2851566, y: -0.042440653}
+  - {x: -1.136473, y: -0.29130137}
+  - {x: -0.9329172, y: -0.497069}
+  - {x: -0.9279762, y: -1.0610458}
+  - {x: -1.0130007, y: -1.2980677}
+  - {x: -0.96982676, y: -1.4630178}
+  - {x: -0.70680434, y: -1.6687509}
+  - {x: -0.31828457, y: -1.8206748}
+  - {x: -0.031995784, y: -1.8408512}
+  - {x: 0.40021664, y: -1.7731849}
+  - {x: 0.7729136, y: -1.6001836}
+  - {x: 0.9336377, y: -1.4242946}
+  - {x: 0.84202594, y: -0.98927414}
+  - {x: 0.81682473, y: -0.67887604}
+  - {x: 0.81707543, y: -0.50826037}
+  - {x: 1.0913541, y: -0.40083015}
+  - {x: 1.2332965, y: -0.23892605}
+  - {x: 1.3063773, y: -0.07427144}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
