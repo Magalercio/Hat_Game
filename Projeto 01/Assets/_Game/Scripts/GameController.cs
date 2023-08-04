@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
 
         else
         {
-           
+            gameStarted = false;
             return;
         }
         
