@@ -29,19 +29,21 @@ public class UIController : MonoBehaviour
     public void ButtonExit()
     {
         //Forma Genérica para qualquer dispositivo
-        /*
+        
          if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-        }
-        */
 
-        //Forma Android
-        AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
-        activity.Call<bool>("moveTaskBack", true);
+            /*
+            //Forma Android
+            AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+            activity.Call<bool>("moveTaskBack", true);
+             
+            */
+        }
     }
 
-    public void ButtonStartGame()
+        public void ButtonStartGame()
     {
         panelMainMenu.gameObject.SetActive(false);
         panelGame.gameObject.SetActive(true);
@@ -64,6 +66,7 @@ public class UIController : MonoBehaviour
 
     public void ButtonRestart()
     {
+        
         panelGame.gameObject.SetActive(true);
         panelPause.gameObject.SetActive(false);
         panelGameOver.gameObject.SetActive(false);
