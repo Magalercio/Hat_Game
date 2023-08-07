@@ -6,6 +6,7 @@ public class SpawnControle : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private float topDistance, lateralMargin;
+    public Transform allBallsParent;
 
     private Vector2 screenWidth;
 
@@ -52,6 +53,7 @@ public class SpawnControle : MonoBehaviour
             transform.position = new Vector2(Random.Range(-screenWidth.x + lateralMargin, screenWidth.x - lateralMargin), transform.position.y);
             // criando a instancia da bola de boliche (objeto, posicao, rotacao)
             GameObject tempBallPrefab = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
+            tempBallPrefab.transform.parent = allBallsParent;
         }
         else
         {
